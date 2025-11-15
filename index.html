@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SandD Организация мероприятий</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a class="header__logo" href="#home" onclick="showSection('home')">
+                <img class="header__logo-img" src="/imges/logo3.png" alt="Логотип АИС">
+            </a>
+            <nav class="nav">
+                <ul class="nav__lists">
+                    <li class="nav__iten"><a href="#home" class="nav__link" onclick="showSection('home')">Главная</a></li>
+                    <li class="nav__iten"><a href="#booking" class="nav__link" onclick="showSection('booking')">Бронирование</a></li>
+                    <li class="nav__iten"><a href="#events" class="nav__link" onclick="showSection('events')">Мероприятия</a></li>
+                    <li class="nav__iten"><a href="#reports" class="nav__link" onclick="showSection('reports')">Отчеты</a></li>
+                    <li class="nav__iten"><a href="#admin" class="nav__link" onclick="showSection('admin')">Администрирование</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главная страница -->
+        <section id="home" class="banner active-section">
+            <div class="container">
+                <div class="banner__info">
+                    <div class="banner__wrapper-logo">
+                        <img class="banner__logo-img" src="/imges/logo3.png" alt="Логотип АИС">     
+                    </div>
+                    <h1 class="banner__title">ОРГАНИЗАЦИЯ МЕРОПРИЯТИЙ</h1>
+                    <p class="banner__text">
+                        Профессиональная организация свадеб, торжеств и корпоративов
+                    </p>
+                    <button class="banner__button" onclick="showSection('booking')">Забронировать</button>
+                </div>
+                <form class="banner__form" id="loginForm">
+                    <div class="banner__form-fill">
+                        <h3 class="banner__form-title">АВТОРИЗАЦИЯ</h3>
+                        <div class="banner__form-group">
+                            <input class="banner__form-input" placeholder="Email" required type="email">
+                            <input class="banner__form-input" placeholder="Пароль" required type="password">
+                        </div>
+                    </div>
+                    <button class="banner__form-button" type="button" onclick="login()">Войти</button>
+                    <p style="text-align: center; margin-top: 10px; font-size: 12px; margin-bottom: 10px;">
+                        Нет аккаунта? <a href="#" onclick="showSection('register')">Зарегистрироваться</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Форма регистрации -->
+        <section id="register" class="banner" style="display: none;">
+            <div class="container">
+                <div class="banner__info">
+                    <h1 class="banner__title">РЕГИСТРАЦИЯ КЛИЕНТА</h1>
+                    <p class="banner__text">
+                        Станьте клиентом нашей системы для бронирования мероприятий
+                    </p>
+                    <button class="banner__button" onclick="showSection('home')">На главную</button>
+                </div>
+                <form class="banner__form">
+                    <div class="banner__form-fill">
+                        <h3 class="banner__form-title">РЕГИСТРАЦИЯ</h3>
+                        <div class="banner__form-group">
+                            <input class="banner__form-input" placeholder="ФИО" required>
+                            <input class="banner__form-input" placeholder="Телефон" required type="tel">
+                            <input class="banner__form-input" placeholder="Email" required type="email">
+                            <input class="banner__form-input" placeholder="Пароль" required type="password">
+                        </div>
+                    </div>
+                    <button class="banner__form-button" type="button" onclick="register()">Зарегистрироваться</button>
+                    <p style="text-align: center; margin-top: 10px; font-size: 12px; margin-bottom: 10px;">
+                        Уже есть аккаунт? <a href="#" onclick="showSection('home')">Войти</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Бронирование -->
+        <section id="booking" class="info awesome-section" style="display: none;">
+            <div class="container">
+                <h2 class="title">БРОНИРОВАНИЕ МЕРОПРИЯТИЯ</h2>
+                <div class="line"></div>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card__wapper-image">
+                            <img src="/imges/hall.png" alt="Выбор зала" class="booking__image">                
+                        </div>
+                        <h3 class="card__title">Выбор зала</h3>
+                        <p class="card__description">
+                            Выберите подходящий зал из наших ресторанов
+                        </p>
+                        <button class="box__button" onclick="showSection('halls')">Выбрать зал →</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__wapper-image">
+                            <img src="/imges/menu.png" alt="Меню" class="booking__image">                
+                        </div>
+                        <h3 class="card__title">Банкетное меню</h3>
+                        <p class="card__description">
+                            Составьте идеальное меню для вашего мероприятия
+                        </p>
+                        <button class="box__button" onclick="showSection('menu')">Выбрать меню →</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__wapper-image">
+                            <img src="/imges/stars.png" alt="Дополнительные услуги" class="booking__image">                
+                        </div>
+                        <h3 class="card__title">Доп. услуги</h3>
+                        <p class="card__description">
+                            Оформление, музыка, фотограф и другие услуги
+                        </p>
+                        <button class="box__button" onclick="showSection('services')">Выбрать услуги →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Выбор залов -->
+        <section id="halls" class="info tab-section" style="display: none;">
+            <div class="container">
+                <h2 class="title">ВЫБОР ЗАЛА</h2>
+                <div class="line"></div>
+                
+                <div class="info__tabs">
+                    <a class="info__tab active" onclick="filterHalls('all')">Все залы</a>
+                    <a class="info__tab" onclick="filterHalls('wedding')">Для свадеб</a>
+                    <a class="info__tab" onclick="filterHalls('corporate')">Для корпоративов</a>
+                </div>
+                
+                <div class="box">
+                    <div class="box__wrapper-text">
+                        <h3 class="box__title">Ресторан "Grand Hall"</h3>
+                        <p class="box__text">
+                            <strong>Вместимость:</strong> до 150 человек<br>
+                            <strong>Стоимость:</strong> от 500 руб/час<br>
+                            <strong>Доступные даты:</strong> 
+                        </p>
+                        <div class="box__text">
+                            <label>Выберите дату: 
+                                <input type="date" id="hallDate" min="" onchange="checkAvailability()">
+                            </label>
+                            <div id="availabilityStatus" style="margin-top: 10px;"></div>
+                        </div>
+                        <button class="box__button" onclick="addToBooking('hall', 'Grand Hall')">Выбрать этот зал</button>
+                    </div>
+                    <div class="box__wrapper-image">
+                        <img class="box__image" src="/imges/img.png" alt="Grand Hall">
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="banner__button" onclick="showSection('booking')">← Назад к бронированию</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Выбор меню -->
+        <section id="menu" class="info tab-section" style="display: none;">
+            <div class="container">
+                <h2 class="title">ВЫБОР БАНКЕТНОГО МЕНЮ</h2>
+                <div class="line"></div>
+                
+                <!-- Все радиокнопки должны быть ПЕРВЫМИ и на одном уровне -->
+                <input type="radio" name="menu-category" id="cat-starters" class="menu-category-radio" checked>
+                <input type="radio" name="menu-category" id="cat-hot" class="menu-category-radio">
+                <input type="radio" name="menu-category" id="cat-drinks" class="menu-category-radio">
+                <input type="radio" name="menu-category" id="cat-desserts" class="menu-category-radio">
+                <input type="radio" name="menu-category" id="cat-kids" class="menu-category-radio">
+                
+                <!-- Навигация по категориям меню -->
+                <div class="menu-categories">
+                    <label for="cat-starters" class="menu-category">Холодные закуски</label>
+                    <label for="cat-hot" class="menu-category">Горячие блюда</label>
+                    <label for="cat-drinks" class="menu-category">Напитки</label>
+                    <label for="cat-desserts" class="menu-category">Десерты</label>
+                    <label for="cat-kids" class="menu-category">Детское меню</label>
+                </div>
+
+                <!-- Общая информация о выбранных блюдах -->
+                <div class="menu-summary">
+                    <div class="menu-summary__info">
+                        <strong>Выбрано блюд: </strong>
+                        <span id="selectedDishesCount">0</span>
+                        <strong>Общая стоимость: </strong>
+                        <span id="totalMenuCost">0 руб</span>
+                    </div>
+                    <button class="menu-summary__button" onclick="saveMenuSelection()">
+                        Сохранить выбор меню
+                    </button>
+                </div>
+
+                <!-- Холодные закуски -->
+                <div class="menu-category-content" id="content-starters">
+                    <h3 class="menu-category__title">Холодные закуски</h3>
+                    <div class="dishes-grid">
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Салат Цезарь</h4>
+                                <p class="dish-card__description">Курица, салат айсберг, пармезан, соус цезарь</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">450 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="50" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Брускетта с томатами</h4>
+                                <p class="dish-card__description">Хлеб чиабатта, помидоры, базилик, оливковое масло</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">320 руб</span>
+                                    <span class="dish-card__portion">(4 шт)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="50" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Мясная тарелка</h4>
+                                <p class="dish-card__description">Ассорти из мясных деликатесов с горчицей и хреном</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">680 руб</span>
+                                    <span class="dish-card__portion">(на 2-3 персоны)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="20" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Горячие блюда -->
+                <div class="menu-category-content" id="content-hot">
+                    <h3 class="menu-category__title">Горячие блюда</h3>
+                    <div class="dishes-grid">
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Стейк из лосося</h4>
+                                <p class="dish-card__description">Филе лосося с овощами гриль и лимоном</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">890 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="30" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Медальоны из телятины</h4>
+                                <p class="dish-card__description">Нежные медальоны с трюфельным соусом</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">950 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="30" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Напитки -->
+                <div class="menu-category-content" id="content-drinks">
+                    <h3 class="menu-category__title">Напитки</h3>
+                    <div class="dishes-grid">
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Шампанское</h4>
+                                <p class="dish-card__description">Игристое вино Просекко</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">1200 руб</span>
+                                    <span class="dish-card__portion">(бутылка)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="20" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Соки</h4>
+                                <p class="dish-card__description">Ассорти апельсиновый, яблочный, томатный</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">250 руб</span>
+                                    <span class="dish-card__portion">(1 л)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="50" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Десерты -->
+                <div class="menu-category-content" id="content-desserts">
+                    <h3 class="menu-category__title">Десерты</h3>
+                    <div class="dishes-grid">
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Тирамису</h4>
+                                <p class="dish-card__description">Классический итальянский десерт</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">380 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="30" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Чизкейк Нью-Йорк</h4>
+                                <p class="dish-card__description">Нежный чизкейк с ягодным соусом</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">320 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="30" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Детское меню -->
+                <div class="menu-category-content" id="content-kids">
+                    <h3 class="menu-category__title">Детское меню</h3>
+                    <div class="dishes-grid">
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Детские наггетсы</h4>
+                                <p class="dish-card__description">Куриные наггетсы с картофелем фри</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">280 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="20" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dish-card">
+                            <div class="dish-card__info">
+                                <h4 class="dish-card__name">Макароны с сыром</h4>
+                                <p class="dish-card__description">Паста с сырным соусом</p>
+                                <div class="dish-card__details">
+                                    <span class="dish-card__price">220 руб</span>
+                                    <span class="dish-card__portion">(1 порция)</span>
+                                </div>
+                            </div>
+                            <div class="dish-card__controls">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-btn" onclick="this.nextElementSibling.stepDown()">−</button>
+                                    <input type="number" class="quantity-input" value="0" min="0" max="20" onchange="updateMenuSummary()">
+                                    <button type="button" class="quantity-btn" onclick="this.previousElementSibling.stepUp()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка возврата -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="booking__button" onclick="showSection('booking')">← Назад к бронированию</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Выбор дополнительных услуг -->
+        <section id="services" class="info tab-section" style="display: none;">
+            <div class="container">
+                <h2 class="title">ВЫБОР ДОПОЛНИТЕЛЬНЫХ УСЛУГ</h2>
+                <div class="line"></div>
+
+                <!-- Общая информация о выбранных услугах -->
+                <div class="services-summary">
+                    <div class="services-summary__info">
+                        <strong>Выбрано услуг: </strong>
+                        <span id="selectedServicesCount">0</span>
+                        <strong>Общая стоимость: </strong>
+                        <span id="totalServicesCost">0 руб</span>
+                    </div>
+                    <button class="services-summary__button" onclick="saveServicesSelection()">
+                        Сохранить выбор услуг
+                    </button>
+                </div>
+
+                <!-- Сетка услуг -->
+                <div class="services-grid">
+                    <!-- Оформление зала дизайнером -->
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Оформление зала дизайнером</h3>
+                            <span class="service-card__badge">Декор</span>
+                        </div>
+                        <div class="service-card__content">
+                            <p class="service-card__description">
+                                Профессиональное оформление зала: цветочные композиции, драпировка, 
+                                световое оформление, тематический декор
+                            </p>
+                            <div class="service-card__options">
+                                <div class="service-option">
+                                    <input type="radio" name="designer" id="designer-basic" value="5000" onchange="updateServicesSummary()">
+                                    <label for="designer-basic">
+                                        <span class="option-name">Базовое оформление</span>
+                                        <span class="option-price">5,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="designer" id="designer-premium" value="15000" onchange="updateServicesSummary()">
+                                    <label for="designer-premium">
+                                        <span class="option-name">Премиум оформление</span>
+                                        <span class="option-price">15,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="designer" id="designer-none" value="0" checked onchange="updateServicesSummary()">
+                                    <label for="designer-none">
+                                        <span class="option-name">Не требуется</span>
+                                        <span class="option-price">0 руб</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Организация сценария режиссером -->
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Организация сценария режиссером</h3>
+                            <span class="service-card__badge">Сценарий</span>
+                        </div>
+                        <div class="service-card__content">
+                            <p class="service-card__description">
+                                Разработка индивидуального сценария мероприятия, ведение торжества, 
+                                организация выступлений и развлечений
+                            </p>
+                            <div class="service-card__options">
+                                <div class="service-option">
+                                    <input type="radio" name="director" id="director-basic" value="8000" onchange="updateServicesSummary()">
+                                    <label for="director-basic">
+                                        <span class="option-name">Базовый сценарий</span>
+                                        <span class="option-price">8,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="director" id="director-premium" value="20000" onchange="updateServicesSummary()">
+                                    <label for="director-premium">
+                                        <span class="option-name">Индивидуальный сценарий</span>
+                                        <span class="option-price">20,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="director" id="director-none" value="0" checked onchange="updateServicesSummary()">
+                                    <label for="director-none">
+                                        <span class="option-name">Не требуется</span>
+                                        <span class="option-price">0 руб</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Музыкальное сопровождение -->
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Музыкальное сопровождение</h3>
+                            <span class="service-card__badge">Музыка</span>
+                        </div>
+                        <div class="service-card__content">
+                            <p class="service-card__description">
+                                Профессиональное музыкальное оформление вашего мероприятия
+                            </p>
+                            <div class="service-card__options">
+                                <div class="service-option">
+                                    <input type="radio" name="music" id="music-equipment" value="3000" onchange="updateServicesSummary()">
+                                    <label for="music-equipment">
+                                        <span class="option-name">Аппаратура + плейлист</span>
+                                        <span class="option-price">3,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="music" id="music-dj" value="10000" onchange="updateServicesSummary()">
+                                    <label for="music-dj">
+                                        <span class="option-name">DJ</span>
+                                        <span class="option-price">10,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="music" id="music-band" value="25000" onchange="updateServicesSummary()">
+                                    <label for="music-band">
+                                        <span class="option-name">Живая группа (3 часа)</span>
+                                        <span class="option-price">25,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="music" id="music-solo" value="15000" onchange="updateServicesSummary()">
+                                    <label for="music-solo">
+                                        <span class="option-name">Сольный исполнитель</span>
+                                        <span class="option-price">15,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="music" id="music-none" value="0" checked onchange="updateServicesSummary()">
+                                    <label for="music-none">
+                                        <span class="option-name">Не требуется</span>
+                                        <span class="option-price">0 руб</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Услуги фотографа -->
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Услуги фотографа</h3>
+                            <span class="service-card__badge">Фото</span>
+                        </div>
+                        <div class="service-card__content">
+                            <p class="service-card__description">
+                                Профессиональная фотосъемка вашего мероприятия
+                            </p>
+                            <div class="service-card__options">
+                                <div class="service-option">
+                                    <input type="radio" name="photographer" id="photo-basic" value="8000" onchange="updateServicesSummary()">
+                                    <label for="photo-basic">
+                                        <span class="option-name">Базовая съемка (3 часа)</span>
+                                        <span class="option-price">8,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="photographer" id="photo-premium" value="15000" onchange="updateServicesSummary()">
+                                    <label for="photo-premium">
+                                        <span class="option-name">Премиум съемка (5 часов)</span>
+                                        <span class="option-price">15,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="photographer" id="photo-full" value="25000" onchange="updateServicesSummary()">
+                                    <label for="photo-full">
+                                        <span class="option-name">Полный день + фотоальбом</span>
+                                        <span class="option-price">25,000 руб</span>
+                                    </label>
+                                </div>
+                                <div class="service-option">
+                                    <input type="radio" name="photographer" id="photo-none" value="0" checked onchange="updateServicesSummary()">
+                                    <label for="photo-none">
+                                        <span class="option-name">Не требуется</span>
+                                        <span class="option-price">0 руб</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительные пожелания -->
+                <div class="service-notes">
+                    <h3 class="service-notes__title">Дополнительные пожелания</h3>
+                    <textarea 
+                        class="service-notes__textarea" 
+                        placeholder="Укажите дополнительные пожелания по услугам, особые требования или предпочтения..."
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <!-- Кнопка возврата -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="booking__button" onclick="showSection('booking')">← Назад к бронированию</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Просмотр мероприятий -->
+        <section id="events" class="customers info" style="display: none;">
+            <div class="container">
+                <h2 class="title">МОИ МЕРОПРИЯТИЯ</h2>
+                <div class="line"></div>
+                
+                <h3 class="testimonial__name">Отображение мероприятий</h3>
+                <div style="text-align: center; display: flex; justify-content: space-between;">
+                    <button class="testimonial__button" onclick="showSection('addEvent')">+ Добавить мероприятие</button>
+                    <button class="testimonial__button" onclick="sortEvents('date')">Сортировать по дате</button>
+                    <button class="testimonial__button" onclick="filterEvents('active')">Только активные</button>
+                </div>
+                
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial__text">
+                            <p><strong>Свадьба Марии и Алексея</strong><br>
+                            Дата: 15.12.2024<br>
+                            Зал: Grand Hall<br>
+                            Статус: Подтверждено</p>
+                        </div>
+                        <div class="testimonial__author">
+                            <div class="testimonial__avatar">
+                                <img src="/imges/avatar1.png" alt="Свадьба">
+                            </div>
+                            <div class="testimonial__info">
+                                <h3 class="testimonial__name">Редактировать</h3>
+                                <p class="testimonial__position">
+                                    <button class="testimonial__button" onclick="editEvent(1)">Изменить</button>
+                                    <button class="testimonial__button" onclick="deleteEvent(1)">Отменить</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial__text">
+                            <p><strong>Корпоратив ООО "Технологии"</strong><br>
+                            Дата: 20.12.2024<br>
+                            Зал: Business Center<br>
+                            Статус: В обработке</p>
+                        </div>
+                        <div class="testimonial__author">
+                            <div class="testimonial__avatar">
+                                <img src="/imges/avatar2.png" alt="Корпоратив">
+                            </div>
+                            <div class="testimonial__info">
+                                <h3 class="testimonial__name">Редактировать</h3>
+                                <p class="testimonial__position">
+                                    <button class="testimonial__button" onclick="editEvent(2)">Изменить</button>
+                                    <button class="testimonial__button" onclick="deleteEvent(2)">Отменить</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Пагинация -->
+                <div class="pagination">
+                    <a href="#" class="pagination__arrow pagination__arrow--prev" onclick="changePage(currentPage - 1)">
+                        ←
+                    </a>
+                    <div class="pagination__numbers">
+                        <a href="#" class="pagination__number" onclick="changePage(1)">1</a>
+                        <a href="#" class="pagination__number" onclick="changePage(2)">2</a>
+                        <a href="#" class="pagination__number pagination__number--active" onclick="changePage(3)">3</a>
+                        <span class="pagination__ellipsis">...</span>
+                        <a href="#" class="pagination__number" onclick="changePage(10)">10</a>
+                    </div>
+                    <a href="#" class="pagination__arrow pagination__arrow--next" onclick="changePage(currentPage + 1)">
+                        →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма добавления мероприятия -->
+        <section id="addEvent" class="contact" style="display: none;">
+            <div class="container">
+                <h2 class="contact__title">ДОБАВЛЕНИЕ МЕРОПРИЯТИЯ</h2>
+                <div class="contact__line"></div>
+                
+                <form class="contact-form">
+                    <div class="contact-form__data">
+                        <div class="contact-form__group">
+                            <input type="text" class="contact-form__input" placeholder="Название мероприятия" required>
+                            <input type="date" class="contact-form__input" placeholder="Дата" required>
+                            <input type="time" class="contact-form__input" placeholder="Время" required>
+                            <input type="number" class="contact-form__input" placeholder="Количество гостей" required>
+                            <select class="contact-form__input">
+                                <option value="">Выберите тип мероприятия</option>
+                                <option value="wedding">Свадьба</option>
+                                <option value="corporate">Корпоратив</option>
+                                <option value="birthday">День рождения</option>
+                            </select>
+                        </div>
+                        <textarea class="contact-form__textarea" placeholder="Дополнительные пожелания"></textarea>
+                    </div>
+                    <button type="button" class="contact-form__button" onclick="saveEvent()">Сохранить мероприятие</button>
+                    <button type="button" class="contact-form__button" onclick="showSection('events')" style="background-color: #666; margin-top: 10px;">Отмена</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Отчеты -->
+        <section id="reports" class="reports info" style="display: none;">
+            <div class="container">
+                <h2 class="title">ОТЧЕТЫ И АНАЛИТИКА</h2>
+                <div class="line"></div>
+                
+                <!-- Панель управления отчетами -->
+                <div class="reports-controls">
+                    <div class="reports-period">
+                        <label class="reports-period__label">Период:</label>
+                        <input type="date" class="reports-period__input" id="startDate">
+                        <span class="reports-period__separator">—</span>
+                        <input type="date" class="reports-period__input" id="endDate">
+                    </div>
+                    
+                    <div class="reports-export">
+                        <label class="reports-export__label">Экспорт в:</label>
+                        <select class="reports-export__select" id="exportFormat">
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="word">Word</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                        <button class="reports-export__button" onclick="exportAllReports()">
+                            Экспортировать все отчеты
+                        </button>
+                    </div>
+                    
+                    <button class="reports-generate__button" onclick="generateReports()">
+                        Сформировать отчеты
+                    </button>
+                </div>
+                
+                <!-- Сетка отчетов -->
+                <div class="reports-grid">
+                    <!-- Отчет по выручке -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3 class="report-card__title">Выручка по типам торжеств</h3>
+                            <span class="report-card__badge">Финансы</span>
+                        </div>
+                        <div class="report-card__content">
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Свадьбы</span>
+                                    <span class="report-stat__value">15,000 руб</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Корпоративы</span>
+                                    <span class="report-stat__value">12,000 руб</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Дни рождения</span>
+                                    <span class="report-stat__value">8,000 руб</span>
+                                </div>
+                                <div class="report-stat report-stat--total">
+                                    <span class="report-stat__label">Итого</span>
+                                    <span class="report-stat__value">35,000 руб</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-card__actions">
+                            <button class="report-action__button" onclick="exportSingleReport('revenue')">
+                                📊 Детальный просмотр
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Отчет по блюдам -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3 class="report-card__title">Популярные блюда</h3>
+                            <span class="report-card__badge">Меню</span>
+                        </div>
+                        <div class="report-card__content">
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Салат Цезарь</span>
+                                    <span class="report-stat__value">45 заказов</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Стейк</span>
+                                    <span class="report-stat__value">38 заказов</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Тирамису</span>
+                                    <span class="report-stat__value">52 заказа</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Шампанское</span>
+                                    <span class="report-stat__value">60 заказов</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-card__actions">
+                            <button class="report-action__button" onclick="exportSingleReport('dishes')">
+                                📊 Детальный просмотр
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Отчет по сотрудникам -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3 class="report-card__title">График работы сотрудников</h3>
+                            <span class="report-card__badge">Персонал</span>
+                        </div>
+                        <div class="report-card__content">
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Иванов И.</span>
+                                    <span class="report-stat__value">160 часов</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Петрова А.</span>
+                                    <span class="report-stat__value">155 часов</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-stat__label">Сидоров П.</span>
+                                    <span class="report-stat__value">168 часов</span>
+                                </div>
+                                <div class="report-stat report-stat--total">
+                                    <span class="report-stat__label">Всего часов</span>
+                                    <span class="report-stat__value">483 часа</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="report-card__actions">
+                            <button class="report-action__button" onclick="exportSingleReport('employees')">
+                                📊 Детальный просмотр
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Администрирование -->
+        <section id="admin" class="info awesome-section" style="display: none;">
+            <div class="container">
+                <h2 class="title">АДМИНИСТРИРОВАНИЕ</h2>
+                <div class="line"></div>
+                
+                <!-- Единый контейнер для всех кнопок на одном уровне -->
+                <div class="admin-actions">
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_1.png" alt="Пользователи" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Управление пользователями</h3>
+                        <p class="admin-action__description">
+                            Добавление, редактирование и удаление пользователей системы
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('users')">
+                            Управление пользователями
+                        </button>
+                    </div>
+
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_2.png" alt="Заказы" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Управление заказами</h3>
+                        <p class="admin-action__description">
+                            Просмотр и управление всеми заказами системы
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('allOrders')">
+                            Управление заказами
+                        </button>
+                    </div>
+
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_3.png" alt="Настройки" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Настройки системы</h3>
+                        <p class="admin-action__description">
+                            Конфигурация параметров системы и уведомлений
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('settings')">
+                            Настройки системы
+                        </button>
+                    </div>
+
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_1.png" alt="Отчеты" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Аналитика и отчеты</h3>
+                        <p class="admin-action__description">
+                            Статистика и аналитические отчеты по работе системы
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('reports')">
+                            Просмотр отчетов
+                        </button>
+                    </div>
+
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_2.png" alt="Персонал" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Управление персоналом</h3>
+                        <p class="admin-action__description">
+                            Управление сотрудниками, графиками работы и доступом
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('staff')">
+                            Управление персоналом
+                        </button>
+                    </div>
+
+                    <div class="admin-action-card">
+                        <div class="admin-action__icon">
+                            <img src="/imges/icon_3.png" alt="Меню" class="admin-action__image">
+                        </div>
+                        <h3 class="admin-action__title">Управление меню</h3>
+                        <p class="admin-action__description">
+                            Редактирование банкетного меню и цен
+                        </p>
+                        <button class="admin-action__button" onclick="showSection('menuManagement')">
+                            Управление меню
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма ошибки -->
+        <section id="error" class="design" style="display: none;">
+            <div class="container">
+                <h2 class="design__title">ОШИБКА</h2>
+                <div class="design__line"></div>
+                <p class="design__text" id="errorMessage">
+                    Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже.
+                </p>
+                <button class="design__button" onclick="showSection('home')">На главную</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer__social-icons">
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/Facebook.svg" alt="Facebook">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/Twitter.svg" alt="Twitter">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/LinkedIn.svg" alt="Linkedln">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/Pinterest.svg" alt="Pinterest">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/Instagram.svg" alt="Instagram">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/GitHub.svg" alt="GitHub">
+                    </a>
+                </li>
+                <li class="footer__social-item">
+                    <a class="footer__social-link" href="#">
+                        <img class="footer__social-icon" src="/imges/Rss.svg" alt="Rss">
+                    </a>
+                </li>
+            </ul>
+                    <p class="footer__text">© 2025 SandD Themes</p>
+        </div>
+    </footer>
+
+    <script>
+        // SPA навигация
+        function showSection(sectionId) {
+            // Скрыть все секции
+            document.querySelectorAll('main > section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Показать выбранную секцию
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+            
+            // Обновить URL без перезагрузки страницы
+            history.pushState(null, null, `#${sectionId}`);
+        }
+        
+        // Обработка входа
+        function login() {
+            // Здесь должна быть реальная логика авторизации
+            alert('Функция входа в систему');
+            showSection('booking');
+        }
+        
+        // Обработка регистрации
+        function register() {
+            // Здесь должна быть реальная логика регистрации
+            alert('Регистрация выполнена успешно');
+            showSection('home');
+        }
+        
+        // Фильтрация залов
+        function filterHalls(type) {
+            alert(`Фильтрация залов по типу: ${type}`);
+            // Реальная логика фильтрации
+        }
+        
+        // Проверка доступности
+        function checkAvailability() {
+            const dateInput = document.getElementById('hallDate');
+            const statusDiv = document.getElementById('availabilityStatus');
+            
+            if (dateInput.value) {
+                statusDiv.innerHTML = '<p style="color: green;">Зал доступен для бронирования</p>';
+            }
+        }
+        
+        // Добавление в бронирование
+        function addToBooking(type, item) {
+            alert(`Добавлено в бронирование: ${item}`);
+            showSection('booking');
+        }
+        
+        // Сортировка мероприятий
+        function sortEvents(criteria) {
+            alert(`Сортировка мероприятий по: ${criteria}`);
+        }
+        
+        // Фильтрация мероприятий
+        function filterEvents(status) {
+            alert(`Фильтрация мероприятий по статусу: ${status}`);
+        }
+        
+        // Редактирование мероприятия
+        function editEvent(id) {
+            alert(`Редактирование мероприятия ID: ${id}`);
+            showSection('addEvent');
+        }
+        
+        // Удаление мероприятия
+        function deleteEvent(id) {
+            if (confirm('Вы уверены, что хотите отменить это мероприятие?')) {
+                alert(`Мероприятие ID: ${id} отменено`);
+            }
+        }
+        
+        // Сохранение мероприятия
+        function saveEvent() {
+            alert('Мероприятие успешно сохранено');
+            showSection('events');
+        }
+        
+        // Генерация отчета
+        function generateReport() {
+            alert('Отчет сформирован за выбранный период');
+        }
+        
+        // Установка минимальной даты для бронирования (текущая дата + 3 дня)
+        window.onload = function() {
+            const today = new Date();
+            const minDate = new Date(today);
+            minDate.setDate(today.getDate() + 3);
+            
+            const dateInput = document.getElementById('hallDate');
+            if (dateInput) {
+                dateInput.min = minDate.toISOString().split('T')[0];
+            }
+            
+            // Показать секцию из URL или главную по умолчанию
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('home');
+            }
+        };
+    </script>
+</body>
+</html>
