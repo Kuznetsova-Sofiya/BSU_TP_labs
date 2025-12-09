@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/app.js" defer></script>
+    <script src="/view.js" defer></script>
+    <script src="/controller.js" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -1139,6 +1142,25 @@
                 showSection('home');
             }
         };
+
+     
+        //Добавьте тестовые данные в консоль
+        window.testData = {
+            sampleObj: {
+                description: 'Тестовое мероприятие',
+                title: 'Тестовая свадьба',
+                date: '2024-12-25',
+                time: '18:00',
+                guestsCount: 50,
+                eventType: 'wedding',
+                hall: 'Grand Hall',
+                photoLink: '/imges/avatar1.png'
+            }
+        };
+        
+        // Для удобства в консоли
+        window.collection = objCollection;
+        window.view = objView;
     </script>
 </body>
 </html>
